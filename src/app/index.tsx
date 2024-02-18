@@ -14,11 +14,11 @@ const Index = (): JSX.Element => {
         {/* 画面下のメモ一覧の設定 */}
         <View>
 
-            <View>
+            <View style={styles.memoListItem}>
                 {/* 左側のメモの名前 */}
                 <View>
-                    <Text>買い物リスト</Text>
-                    <Text>2024年2月</Text>
+                    <Text style={styles.memoListItemTitle}>買い物リスト</Text>
+                    <Text style={styles.memoListItemDate}>2024年2月</Text>
                 </View>
                 {/* 右側のバツボタン */}
                 <View>
@@ -26,11 +26,11 @@ const Index = (): JSX.Element => {
                 </View>
             </View>
 
-            <View>
+            <View style={styles.memoListItem}>
                 {/* 左側のメモの名前 */}
                 <View>
-                    <Text>買い物リスト</Text>
-                    <Text>2024年2月</Text>
+                    <Text style={styles.memoListItemTitle}>買い物リスト</Text>
+                    <Text style={styles.memoListItemDate}>2024年2月</Text>
                 </View>
                 {/* 右側のバツボタン */}
                 <View>
@@ -38,11 +38,11 @@ const Index = (): JSX.Element => {
                 </View>
             </View>
 
-            <View>
+            <View style={styles.memoListItem}>
                 {/* 左側のメモの名前 */}
                 <View>
-                    <Text>買い物リスト</Text>
-                    <Text>2024年2月</Text>
+                    <Text style={styles.memoListItemTitle}>買い物リスト</Text>
+                    <Text style={styles.memoListItemDate}>2024年2月</Text>
                 </View>
                 {/* 右側のバツボタン */}
                 <View>
@@ -82,6 +82,26 @@ const styles = StyleSheet.create({
     lineHeight: 32,
     fontWeight: 'bold',
     color: '#ffffff'
+  },
+  memoListItem: {
+    backgroundColor: '#ffffff',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingVertical: 16,
+    paddingHorizontal: 19,
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(0,0,0,0.15)'
+
+  },
+  memoListItemTitle: {
+    fontSize: 16,
+    lineHeight: 32
+  },
+  memoListItemDate: {
+    fontSize: 16,
+    lineHeight: 32,
+    color: '#848484'
   }
 })
 
