@@ -1,19 +1,22 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { Feather } from '@expo/vector-icons'
+import { Link } from 'expo-router'
 
 const MemoList = (): JSX.Element => {
   return (
-    <View style={styles.memoListItem}>
-        {/* 左側のメモの名前 */}
-        <View>
-            <Text style={styles.memoListItemTitle}>買い物リスト</Text>
-            <Text style={styles.memoListItemDate}>2024年2月</Text>
-        </View>
-        {/* 右側のバツボタン */}
-        <View>
-        <Feather name='delete' size={20} color='#B0B0B0'/>
-        </View>
-    </View>
+    <Link href='/memo/detail' asChild>
+      <TouchableOpacity style={styles.memoListItem}>
+          {/* 左側のメモの名前 */}
+          <View>
+              <Text style={styles.memoListItemTitle}>買い物リスト</Text>
+              <Text style={styles.memoListItemDate}>2024年2月</Text>
+          </View>
+          {/* 右側のバツボタン */}
+          <TouchableOpacity>
+          <Feather name='delete' size={20} color='#B0B0B0'/>
+          </TouchableOpacity>
+      </TouchableOpacity>
+    </Link>
   )
 }
 

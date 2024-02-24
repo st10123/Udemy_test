@@ -2,9 +2,14 @@ import {
   View, TextInput, StyleSheet, KeyboardAvoidingView
 } from 'react-native'
 import { Feather } from '@expo/vector-icons'
+import { router } from 'expo-router'
 
 import Header from '../../components/Header'
 import CircleButton from '../../components/CircleButton'
+
+const handlepress = (): void => {
+  router.back()
+}
 
 const Create = (): JSX.Element => {
   return (
@@ -13,7 +18,7 @@ const Create = (): JSX.Element => {
         <View style={styles.inputContainer}>
             <TextInput multiline style={styles.input} value= '' />
         </View>
-        <CircleButton>
+        <CircleButton onPress={handlepress}>
             <Feather name='plus' size={40}/>
         </CircleButton>
     </KeyboardAvoidingView>

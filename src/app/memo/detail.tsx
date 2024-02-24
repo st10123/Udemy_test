@@ -1,8 +1,13 @@
 import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import { Feather } from '@expo/vector-icons'
+import { router } from 'expo-router'
 
 import Header from '../../components/Header'
 import CircleButton from '../../components/CircleButton'
+
+const hundlepress = (): void => {
+  router.push('memo/edit')
+}
 
 const Detail = (): JSX.Element => {
   return (
@@ -20,7 +25,7 @@ const Detail = (): JSX.Element => {
                     ライオン
                 </Text>
             </ScrollView>
-            <CircleButton style={{ top: 160, bottom: 'auto' }}>
+            <CircleButton onPress={hundlepress} style={{ top: 160, bottom: 'auto' }}>
                 <Feather name='check' size={40} />
             </CircleButton>
         </View>
