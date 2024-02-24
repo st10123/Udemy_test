@@ -1,6 +1,5 @@
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native'
 
-import Header from '../../components/Header'
 import Button from '../../components/Button'
 
 import { Link, router } from 'expo-router'
@@ -13,21 +12,20 @@ const hundlePress = (): void => {
 const Sineup = (): JSX.Element => {
   return (
     <View style={ styles.container }>
-        <Header />
-        <View style={styles.inner}>
-            <Text style={styles.title}>Sign Up</Text>
-            <TextInput style={styles.input} value='Email Address' />
-            <TextInput style={styles.input} value='Password' />
-            <Button label='Submit' onPress={hundlePress} />
-            <View style={styles.footer}>
-                <Text style={styles.footerText}>Already registered?</Text>
-                <Link href='/auth/Login' asChild>
-                <TouchableOpacity>
-                 <Text style={styles.footerLink}>Log in.</Text>
-                </TouchableOpacity>
-                </Link>
-            </View>
-        </View>
+      <View style={styles.inner}>
+          <Text style={styles.title}>Sign Up</Text>
+          <TextInput style={styles.input} value='Email Address' />
+          <TextInput style={styles.input} value='Password' />
+          <Button label='Submit' onPress={hundlePress} />
+          <View style={styles.footer}>
+              <Text style={styles.footerText}>Already registered?</Text>
+              <Link href='/auth/Login' asChild>
+              <TouchableOpacity>
+                <Text style={styles.footerLink}>Log in.</Text>
+              </TouchableOpacity>
+              </Link>
+          </View>
+      </View>
     </View>
   )
 }
