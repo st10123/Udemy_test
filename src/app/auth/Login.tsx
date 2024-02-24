@@ -1,12 +1,21 @@
-import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, TextInput, StyleSheet, TouchableOpacity,Alert } from 'react-native'
 import { useState } from 'react'
 import Button from '../../components/Button'
+import { signInWithEmailAndPassword } from 'firebase/auth'
 
+import { auth  } from '../../config'
 import { Link, router } from 'expo-router'
 
-const hundlePress = (): void => {
+const hundlePress = (email: string, paassword: string): void => {
   // ログイン
-  router.replace('memo/list')
+  signInWithEmailAndPassword(auth, email, paassword)
+    .then((userCredential) => {
+      router.replace('memo/list')
+    })
+    .catch((error) => {
+      const { code, message } = error
+      Alert.alert(message)
+    })
 }
 
 const Login = (): JSX.Element => {
@@ -33,7 +42,7 @@ const Login = (): JSX.Element => {
             placeholder='Password'
             textContentType='password'
             />
-            <Button label='Submit' onPress={hundlePress}/>
+            <Button label='Submit' onPress={() => { hundlePress(email, password) }}/>
             <View style={styles.footer}>
                 <Text style={styles.footerText}>Not registered?</Text>
                 <Link href='/auth/Signup' asChild>

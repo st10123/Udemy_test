@@ -1,12 +1,22 @@
-import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, TextInput, StyleSheet, TouchableOpacity,Alert } from 'react-native'
 import { useState } from 'react'
 import Button from '../../components/Button'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
 
+import { auth } from '../../config'
 import { Link, router } from 'expo-router'
 
-const hundlePress = (): void => {
+const hundlePress = (email: string, password: string): void => {
   // 会員登録
-  router.push('memo/list')
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      router.replace('/memo/list')
+    })
+    .catch((error) => {
+      const { code, message } = error
+      console.log(code, message)
+      Alert.alert(message)
+    })
 }
 
 const Sineup = (): JSX.Element => {
@@ -33,10 +43,10 @@ const Sineup = (): JSX.Element => {
             placeholder='Password'
             textContentType='password'
             />
-          <Button label='Submit' onPress={hundlePress} />
+          <Button label='Submit' onPress={() => { hundlePress(email, password) }} />
           <View style={styles.footer}>
               <Text style={styles.footerText}>Already registered?</Text>
-              <Link href='/auth/Login' asChild>
+              <Link href='/auth/Login' asChild replace>
               <TouchableOpacity>
                 <Text style={styles.footerLink}>Log in.</Text>
               </TouchableOpacity>
