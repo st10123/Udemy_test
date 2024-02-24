@@ -6,7 +6,7 @@ import { Link, router } from 'expo-router'
 
 const hundlePress = (): void => {
   // ログイン
-  router.push('memo/list')
+  router.replace('memo/list')
 }
 
 const Login = (): JSX.Element => {
