@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native'
+import { Feather } from '@expo/vector-icons'
 
 const MemoList = (): JSX.Element => {
   return (
@@ -10,7 +11,7 @@ const MemoList = (): JSX.Element => {
         </View>
         {/* 右側のバツボタン */}
         <View>
-            <Text>X</Text>
+        <Feather name='delete' size={20} color='#B0B0B0'/>
         </View>
     </View>
   )
