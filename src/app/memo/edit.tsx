@@ -49,6 +49,7 @@ const Editor = (): JSX.Element => {
             style={styles.input}
             value= {bodyText}
             onChangeText={(text) => { setBodyText(text) }}
+            autoFocus
             />
         </View>
         <CircleButton onPress={() => { handlepress(id, bodyText) }}>
