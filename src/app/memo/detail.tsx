@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import { Feather } from '@expo/vector-icons'
-import { router } from 'expo-router'
+import { router, useLocalSearchParams } from 'expo-router'
 
 import CircleButton from '../../components/CircleButton'
 
@@ -9,6 +9,8 @@ const hundlepress = (): void => {
 }
 
 const Detail = (): JSX.Element => {
+  const { id } = useLocalSearchParams()
+  console.log(id)
   return (
         <View style={styles.container}>
             <View style={styles.memoHeader}>
